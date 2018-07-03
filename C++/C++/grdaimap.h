@@ -98,7 +98,7 @@ grd_node()类
 
 结点自身的输出函数，若栈，队列，返回4字节内模拟电流（0无电流）。这里要考虑突触可塑性LTP，LTD。长期增强作用，长期抑制作用，短期突触可塑性。以及兴奋型、抑制型。
 */
-template <class T>
+template <class T,class D>
 class grd_node
 {
   public:
@@ -106,7 +106,7 @@ class grd_node
 
   private:
 	grd_node(long num, int type = 0, int size = 32);
-	~grd_node();
+	~grd_node() {};
 	int *fromfront();
 	{
 		return inputrix;
@@ -119,7 +119,7 @@ class grd_node
 	int lim;
 	int nodetype;
 	long numnode
-		T ner;
+	T *ner;
 };
 class grd_map
 {
