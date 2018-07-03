@@ -23,10 +23,10 @@
 template <class T>
 class grd_stack
 {
-public:
+  public:
 	friend class grd_node;
 
-private:
+  private:
 	grd_stack(int size = 16, long numnode = 0);
 	~grd_stack()
 	{
@@ -67,10 +67,10 @@ getrear函数，获取队尾
 template <class T>
 class grd_queue
 {
-public:
+  public:
 	friend class grd_node;
 
-private:
+  private:
 	grd_queue(int size = 16, long numnode = 0);
 	~grd_queue()
 	{
@@ -101,19 +101,25 @@ grd_node()类
 template <class T>
 class grd_node
 {
-	public:
+  public:
 	friend class grd_map;
-	private:
-	grd_node(int i=0);
+
+  private:
+	grd_node(long num, int type = 0, int size = 32);
 	~grd_node();
-	int fromfront(int x,int y);
-	int inputrix[32][2];
+	int *fromfront();
+	{
+		return inputrix;
+	}
+	int inputrix[32][3];
 	int x[32];
-	int w[32];
-	int run();
-	int torear();
+	float w[32];
+	long runtorear();
+	// int torear();
 	int lim;
-	T *ner;
+	int nodetype;
+	long numnode
+		T ner;
 };
 class grd_map
 {
