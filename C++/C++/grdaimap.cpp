@@ -120,15 +120,17 @@ grd_node<T>::grd_node(long num, int type, int size)
     nodetype = type;
     if (type = 0)
     {
-        ner = int(0);
+        ner = new NODEINNER;
     }
     if (type = 1)
     {
-        ner = grd_stack<T>(size, numnode);
+#define NODEINNER grd_stack
+        ner = NODEINNER<int>(size, numnode);
     }
     if (type = 2)
     {
-        ner = grd_queue<T>(size, numnode);
+#define NODEINNER grd_queue
+        ner = NODEINNER<int>(size, numnode);
     }
     else
     {

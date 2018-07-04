@@ -1,21 +1,25 @@
 ﻿  grdaimap.cpp
 d:\code\grdaimap\c++\c++\grdaimap.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\code\grdaimap\c++\c++\grdaimap.h(123): error C2989: “grd_node”: 类 模板 已经声明为非类 模板
-  d:\code\grdaimap\c++\c++\grdaimap.h(27): note: 参见“grd_node”的声明
-d:\code\grdaimap\c++\c++\grdaimap.h(101): error C3857: “grd_node”: 不允许使用多个 模板 参数列表
+d:\code\grdaimap\c++\c++\grdaimap.h(124): error C2989: “grd_node”: 类 模板 已经声明为非类 模板
+  d:\code\grdaimap\c++\c++\grdaimap.h(28): note: 参见“grd_node”的声明
+d:\code\grdaimap\c++\c++\grdaimap.h(102): error C3857: “grd_node”: 不允许使用多个 模板 参数列表
 d:\code\grdaimap\c++\c++\grdaimap.cpp(117): error C2988: 不可识别的模板声明/定义
 d:\code\grdaimap\c++\c++\grdaimap.cpp(117): error C2059: 语法错误:“<”
 d:\code\grdaimap\c++\c++\grdaimap.cpp(118): error C2143: 语法错误: 缺少“;”(在“{”的前面)
 d:\code\grdaimap\c++\c++\grdaimap.cpp(118): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
-d:\code\grdaimap\c++\c++\grdaimap.cpp(146): error C2001: 常量中有换行符
-d:\code\grdaimap\c++\c++\grdaimap.cpp(149): error C2988: 不可识别的模板声明/定义
-d:\code\grdaimap\c++\c++\grdaimap.cpp(149): error C2143: 语法错误: 缺少“;”(在“<”的前面)
-d:\code\grdaimap\c++\c++\grdaimap.cpp(149): error C2059: 语法错误:“<”
-d:\code\grdaimap\c++\c++\grdaimap.cpp(149): error C2039: “runtorear”: 不是“`global namespace'”的成员
-d:\code\grdaimap\c++\c++\grdaimap.cpp(150): error C2143: 语法错误: 缺少“;”(在“{”的前面)
-d:\code\grdaimap\c++\c++\grdaimap.cpp(150): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+d:\code\grdaimap\c++\c++\grdaimap.cpp(127): warning C4005: “NODEINNER”: 宏重定义
+  d:\code\grdaimap\c++\c++\grdaimap.h(3): note: 参见“NODEINNER”的前一个定义
+d:\code\grdaimap\c++\c++\grdaimap.cpp(132): warning C4005: “NODEINNER”: 宏重定义
+  d:\code\grdaimap\c++\c++\grdaimap.cpp(127): note: 参见“NODEINNER”的前一个定义
+d:\code\grdaimap\c++\c++\grdaimap.cpp(148): error C2001: 常量中有换行符
+d:\code\grdaimap\c++\c++\grdaimap.cpp(151): error C2988: 不可识别的模板声明/定义
+d:\code\grdaimap\c++\c++\grdaimap.cpp(151): error C2143: 语法错误: 缺少“;”(在“<”的前面)
+d:\code\grdaimap\c++\c++\grdaimap.cpp(151): error C2059: 语法错误:“<”
+d:\code\grdaimap\c++\c++\grdaimap.cpp(151): error C2039: “runtorear”: 不是“`global namespace'”的成员
+d:\code\grdaimap\c++\c++\grdaimap.cpp(152): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+d:\code\grdaimap\c++\c++\grdaimap.cpp(152): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
   测试.cpp
-d:\code\grdaimap\c++\c++\grdaimap.h(123): error C2989: “grd_node”: 类 模板 已经声明为非类 模板
-  d:\code\grdaimap\c++\c++\grdaimap.h(27): note: 参见“grd_node”的声明
-d:\code\grdaimap\c++\c++\grdaimap.h(101): error C3857: “grd_node”: 不允许使用多个 模板 参数列表
+d:\code\grdaimap\c++\c++\grdaimap.h(124): error C2989: “grd_node”: 类 模板 已经声明为非类 模板
+  d:\code\grdaimap\c++\c++\grdaimap.h(28): note: 参见“grd_node”的声明
+d:\code\grdaimap\c++\c++\grdaimap.h(102): error C3857: “grd_node”: 不允许使用多个 模板 参数列表
   正在生成代码...
