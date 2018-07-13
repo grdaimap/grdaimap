@@ -1,4 +1,4 @@
-//这个程序的报错说明了构造函数创建的局部变量只属于构造函数，类成员不能访问
+//这个程序的报错说明了编辑器无法理解奇奇怪怪的人类思维
 #include <iostream.h>
 template <typename T>
 class grd_stack

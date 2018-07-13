@@ -26,15 +26,12 @@ class grd_node
   private:
 	grd_node(long num, int type = 0, int size = 32);
 	~grd_node(){};
-	//int *fromfront();
-	//{
-	//	return inputrix;
-	//}
+	int& fromfront();
 	int inputrix[32][3];
 	int x[32];
 	float w[32];
 	long runtorear();
-	// int torear();
+	 int torear();
 	int lim;
 	int nodetype;
 	long numnode;
