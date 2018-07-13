@@ -38,8 +38,8 @@ class grd_node
 	int nodetype;
 	long numnode;
 	ELEM *atom;
-	grd_queue<ELEM>* grdque;
-	grd_stack<ELEM>* grdstk;
+	grd_queue<ELEM>* grdque;//？？？？？？？？？？？？？？？？？？？？？？？？？？？？不知道怎么办啊大佬来救啊
+	grd_stack<ELEM>* grdstk;//？？？？？？？？？？？？？？？？？？？？？？？？？？？？不知道怎么办啊大佬来救啊
 };
 
 /*grd_stack类：
