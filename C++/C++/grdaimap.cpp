@@ -1,4 +1,4 @@
-#include "grdaimap.h"
+﻿#include "grdaimap.h"
 #include <iostream>
 #include <random> //C++11以上才可使用
 using namespace std;
@@ -113,34 +113,36 @@ T grd_queue<T>::getrear()
     int n = (rear + length - 1) % length;
     return queue[n];
 }
-grd_node::grd_node(long num, int type, int size)
+template <typename T>
+grd_node<T>::grd_node(long num, int type, int size)
 {
-    numnode = num;
-    nodetype = type;
-    if (type = 1)
-    {
-        atom = new ELEM;
-    }
-    if (type = 2)
-    {
-        grdstk = new grd_stack<ELEM>;
-    }
-    else
-    {
-        grdque = new grd_queue<ELEM>(16, numnode);
-    }
-    int i;
-    default_random_engine e;
-    uniform_int_distribution<float> uf(-1, 1);
-    uniform_int_distribution<int> uli(-32000, 32000);
-    lim = uli(e);
-    for (i = 0; i < 32; i++)
-    {
-        w[i] = uf(e);
-    }
-    cout << numnode << "初始化完成" << endl;
+	numnode = num;
+	nodetype = type;
+	if (type = 1)
+	{
+		ner = new ELEM;
+	}
+	if (type = 2)
+	{
+		ner = new grd_stack<ELEM>(16, numnode);
+	}
+	else
+	{
+		ner = new grd_queue<ELEM>(16, numnode);
+	}
+	int i;
+	default_random_engine e;
+	uniform_int_distribution<float> uf(-1, 1);
+	uniform_real_distribution<int> uli(-32000, 32000);
+	lim = uli(e);
+	for (i = 0; i < 32; i++)
+	{
+		w[i] = uf(e);
+	}
+	cout << numnode << "初始化完成" << endl;
 }
-long grd_node::runtorear()
+template <typename T>
+long grd_node<T>::runtorear()
 {
     int i;
     long r = 0;

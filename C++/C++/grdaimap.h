@@ -17,6 +17,7 @@ grd_node()类
 
 结点自身的输出函数，若栈，队列，返回4字节内模拟电流（0无电流）。这里要考虑突触可塑性LTP，LTD。长期增强作用，长期抑制作用，短期突触可塑性。以及兴奋型、抑制型。
 */
+template <typename T>
 class grd_node
 {
   public:
@@ -37,9 +38,7 @@ class grd_node
 	int lim;
 	int nodetype;
 	long numnode;
-	ELEM *atom;
-	grd_queue<ELEM>* grdque;//？？？？？？？？？？？？？？？？？？？？？？？？？？？？不知道怎么办啊大佬来救啊
-	grd_stack<ELEM>* grdstk;//？？？？？？？？？？？？？？？？？？？？？？？？？？？？不知道怎么办啊大佬来救啊
+	T* ner;
 };
 
 /*grd_stack类：
@@ -62,11 +61,11 @@ class grd_node
 
 一个析构函数。~grd_stack()
 */
-template <class T>
+template <typename T>
 class grd_stack
 {
   public:
-	friend class grd_node;
+	friend class grd_node<T>;
 
   private:
 	grd_stack(int size = 16, long numnode = 0);
@@ -106,11 +105,11 @@ getrear函数，获取队尾
 
 一个析构函数。~grd_queue()
 */
-template <class T>
+template <typename T>
 class grd_queue
 {
   public:
-	friend class grd_node;
+	friend class grd_node<T>;
 
   private:
 	grd_queue(int size = 16, long numnode = 0);
