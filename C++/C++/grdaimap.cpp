@@ -113,33 +113,26 @@ T grd_queue<T>::getrear()
     int n = (rear + length - 1) % length;
     return queue[n];
 }
-template <class T>
-grd_node<T>::grd_node(long num, int type, int size)
+grd_node::grd_node(long num, int type, int size)
 {
     numnode = num;
     nodetype = type;
-    if (type = 0)
-    {
-        ner = new NODEINNER;
-    }
     if (type = 1)
     {
-#define NODEINNER grd_stack
-        ner = NODEINNER<int>(size, numnode);
+        atom = new ELEM;
     }
     if (type = 2)
     {
-#define NODEINNER grd_queue
-        ner = NODEINNER<int>(size, numnode);
+        grdstk = new grd_stack<ELEM>;
     }
     else
     {
-        ner = int(0);
+        grdque = new grd_queue<ELEM>(16, numnode);
     }
     int i;
     default_random_engine e;
-    uniform_int_distribution<float> uf<-1, 1>;
-    uniform_int_distribution<int> uli<-32000, 32000>;
+    uniform_int_distribution<float> uf(-1, 1);
+    uniform_int_distribution<int> uli(-32000, 32000);
     lim = uli(e);
     for (i = 0; i < 32; i++)
     {
@@ -147,8 +140,7 @@ grd_node<T>::grd_node(long num, int type, int size)
     }
     cout << numnode << "初始化完成" << endl;
 }
-template <class T>
-int *grd_node<T>::runtorear()
+long grd_node::runtorear()
 {
     int i;
     long r = 0;
