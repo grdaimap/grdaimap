@@ -1,8 +1,16 @@
 ﻿#ifndef _GRDAIMAP_H
 #define _GRDAIMAP_H
 typedef int ELEM;
+
+template <typename D>
 class grd_map
 {
+  public:
+	grd_map(int inp = 1, int out = 1, int mid = 0);
+	~grd_map() { delete[]nodes ;}
+
+  private:
+	  D *nodes;
 };
 /*
 grd_node()类
@@ -21,21 +29,22 @@ template <typename T>
 class grd_node
 {
   public:
-	friend class grd_map;
+	friend class grd_map<T>;
 
   private:
-	grd_node(long num, int type = 0, int size = 32);
-	~grd_node(){};
-	int& fromfront();
+	grd_node();
+	void grd_init(int num, int type = 0, int size = 32);
+	~grd_node() { delete[] ner; }
+	int &fromfront();
 	int inputrix[32][3];
 	int x[32];
 	float w[32];
 	long runtorear();
-	 int torear();
+	int torear();
 	int lim;
 	int nodetype;
 	long numnode;
-	T* ner;
+	T *ner;
 };
 
 /*grd_stack类：

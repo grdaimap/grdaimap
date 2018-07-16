@@ -2,6 +2,7 @@
 #include <iostream>
 #include <random> //C++11以上才可使用
 using namespace std;
+#define TYPE 0
 template <typename T>
 grd_stack<T>::grd_stack(int size, long numnode)
 {
@@ -114,26 +115,28 @@ T grd_queue<T>::getrear()
 	return queue[n];
 }
 template <typename T>
-grd_node<T>::grd_node(long num, int type, int size)
+void grd_node<T>::grd_init(int num, int type, int size)
 {
+	if (!*ner)
+		delete[] ner;
 	numnode = num;
 	nodetype = type;
 	if (type = 1)
 	{
-		ner = new ELEM;
+		ner = new grd_stack<T>(16, numnode);
 	}
 	if (type = 2)
 	{
-		ner = new grd_stack<ELEM>(16, numnode);
+		ner = new grd_queue<T>(16, numnode);
 	}
 	else
 	{
-		ner = new grd_queue<ELEM>(16, numnode);
+		ner = new T;
 	}
 	int i;
 	default_random_engine e;
-	uniform_int_distribution<float> uf(-1, 1);
-	uniform_real_distribution<int> uli(-32000, 32000);
+	uniform_real_distribution<float> uf(-1, 1);
+	uniform_int_distribution<int> uli(-32000, 32000);
 	lim = uli(e);
 	for (i = 0; i < 32; i++)
 	{
@@ -162,13 +165,31 @@ int grd_node<T>::torear()
 {
 	int resultnum, rear;
 	resultnum = runtorear();
-	if (resultnum < lim)return 0; else {
+	if (resultnum < lim)
+		return 0;
+	else
+	{
 		rear = resultnum / lim;
 		return rear;
 	}
 }
 template <typename T>
-int& grd_node<T>::fromfront()
+int &grd_node<T>::fromfront()
 {
 	return inputrix;
+}
+template <typename D>
+grd_map<D>::grd_map(int inp, int out, int mid)
+{
+	if (inp > 0 && mid >= 0 && out > 0)
+	{
+		const int amt = inp + out + mid;
+		nodes = new grd_node<D>[amt];
+		int temp;
+		uniform_int_distribution<int> uli(0, 2);
+		for (temp = 0; temp < amt; temp++)
+		{
+			nodes[temp].grd_init(temp, TYPE, 64);
+		}
+	}
 }
