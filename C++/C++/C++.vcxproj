@@ -115,11 +115,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\cloud\Desktop\grd.h" />
+    <ClCompile Include="grd.cpp" />
+    <ClCompile Include="测试.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\cloud\Desktop\grd.cpp" />
-    <ClCompile Include="测试.cpp" />
+    <ClInclude Include="grd.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
