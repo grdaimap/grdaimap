@@ -40,17 +40,17 @@ __________________________
 
 ## 3.
 ## **模拟神经网络grd_map类：**
-	一个结点数组，grd_node *nodes;
+一个结点数组，grd_node *nodes;
 
-	初始化函数，grd_map(int inp = 1, int out = 1, int amout = 0, int max = 2);
+初始化函数，grd_map(int inp = 1, int out = 1, int amout = 0, int max = 2);
 
-	改变层数，建议少于十层，void reshape(int maxp);
+改变层数，建议少于十层，void reshape(int maxp);
 
-	运行函数，void grd_run();
+运行函数，void grd_run();
 
-	结点总数，int amt = 0;
+结点总数，int amt = 0;
 
-	最大层数，int maxp = 0;
+最大层数，int maxp = 0;
 
 
 
