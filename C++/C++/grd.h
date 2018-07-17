@@ -1,29 +1,40 @@
+/*
+作者：grdaimap，
+联系方式&源码地址：https://github.com/grdaimap/grdaimap
+*/
 #pragma once
-#include <stdlib.h>
+/*每个 innersp类 包括：
+储存空间（环形）maxsize；
+
+头尾“指针”，bottom和upper;
+
+读端函数，gete和getf；
+
+去端函数，dele和delf。*/
 class innersp
 {
 public:
 	void sp_init(int max = 2);
 	void push(int e);
 
-	int getf();
+	int getb();
 
-	int gete();
+	int getu();
 
-	void delf();
+	void delb();
 
-	void dele();
+	void delu();
 
-	int popf()
+	int popb()//读取并删除最旧数据
 	{
-		int f = getf();
-		delf();
+		int f = getb();
+		delb();
 		return f;
 	}
-	int pope()
+	int popu()//读取并删除最新数据
 	{
-		int e = gete();
-		dele();
+		int e = getu();
+		delu();
 		return e;
 	}
 
@@ -33,6 +44,18 @@ private:
 	int bottom;
 	int upper;
 };
+
+/*模拟神经结点grd_node类：
+
+多个输入参数（树突，多达32上限），一个返回值（轴突）。
+
+结点自身的运算函数：接受邻近结点参数，进行放大（缩小）、相加，得出结果值和阈值比较。
+
+结点自身的输出函数，返回4字节内模拟电流（0无电流）。
+
+这里要考虑突触可塑性LTP，LTD。长期增强作用，长期抑制作用，短期突触可塑性。以及兴奋型、抑制型。
+
+**！！不使用神经网络常用的激活函数***/
 class grd_node
 {
 
@@ -47,12 +70,23 @@ private:
 	int lim;
 	innersp inner;
 };
+/*模拟神经网络grd_map类：
+	一个结点数组，grd_node *nodes;
 
+	初始化函数，grd_map(int inp = 1, int out = 1, int amout = 0, int max = 2);
+
+	改变层数，建议少于十层，void reshape(int maxp);
+
+	运行函数，void grd_run();
+
+	结点总数，int amt = 0;
+
+	最大层数，int maxp = 0;*/
 class grd_map
 {
-	grd_node *nodes;
+
 public:
-	grd_map(int inp = 1, int out = 1, int amout = 0, int max = 2);
+	grd_map(int inp = 1, int sig = 1, int amout = 0, int max = 2);
 	void reshape(int maxp);
 	~grd_map()
 	{
@@ -62,8 +96,8 @@ public:
 	void grd_run();
 
 private:
-
+	grd_node * nodes;
 	int amt = 0;
-	int maxp = 0;
+	int maxp = 1;
 };
 

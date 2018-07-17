@@ -1,51 +1,66 @@
+/*
+作者：grdaimap，
+联系方式&源码地址：https://github.com/grdaimap/grdaimap
+*/
 #include "grd.h"
 #include <iostream>
+#include <stdlib.h>
 #include <random> //C++11以上才可使用
 using namespace std;
-grd_map::grd_map(int inp, int out, int amout, int max)
+grd_map::grd_map(int inp, int sig, int amout, int max)//(int inp，输入结点的个数, int sig，标记结点个数（检验神经网络能力）, int amout，结点总数大于2, int max，结点内部空间大于2；默认不分层)
 {
-	amt = amout;
-	if (inp > 0 && amout >= 0 && out > 0)
+
+	if (inp <= 0 || amout < 2 || sig <= 0 || max < 2)
 	{
-		nodes = new grd_node[amout];
-		int temp;
-		for (temp = 0; temp < amout; temp++)
-		{
-			nodes[temp].grd_init(temp, max);
-		}
+		inp = 1; sig = 1; amout = 2; max = 2;
 	}
+	amt = amout;
+	nodes = new grd_node[amout];
+	int temp;
+	for (temp = 0; temp < amout; temp++)
+	{
+		nodes[temp].grd_init(temp, max);
+	}
+
 }
-void grd_map::grd_run()
+void grd_map::grd_run()//二维环形神经网络，运行
 {
 	int pin = 0, anc = 0, lef = 0, rig = amt, i, r = 0;
 	while (nodes[anc].sort == pin)
 	{
-		if (nodes[anc].nodenum - 16 > 0)
-			lef = nodes[anc].nodenum - 16;
-		if (nodes[anc].nodenum + 16 < amt - 1)
-			rig = nodes[anc].nodenum + 16;
-		for (i = lef; i < rig; i++)
-			r += nodes[anc].w[i] * nodes[i].my;
+		if (amt <= 33)//不足则全连接
+			for (i = lef; i < rig; i++)
+				if (i != anc && nodes[i].sort <= nodes[anc].sort)r += nodes[anc].w[i] * nodes[i].my;
+		if (amt > 33)
+		{
+			lef = (anc - 16 + amt) % amt; rig = (anc + 16) % amt;
+		}
+		for (i = lef; i != anc; i = (++i) % amt)
+			if (nodes[i].sort <= nodes[anc].sort)
+				r += nodes[anc].w[i] * nodes[i].my;
+		for (i = anc + 1; i != rig; i = (++i) % amt)
+			if (nodes[i].sort <= nodes[anc].sort)
+				r += nodes[anc].w[i] * nodes[i].my;
 		anc++;
 		if (anc >= amt)
 		{
 			pin++;
 			anc = 0;
 		}
-		if (pin > maxp)
+		if (pin > maxp - 1)
 			break;
 	}
 }
-void grd_map::reshape(int p)
+void grd_map::reshape(int p)//分层函数，把环形网络平均分成多组，施工中。
 {
-	maxp = p;
+	if (p > 0)maxp = p;
 	int ii = amt / maxp, i;
 	for (i = 0; i < amt; i++)
 	{
 		nodes[i].sort = i / ii;
 	}
 }
-void grd_node::grd_init(int num, int max)
+void grd_node::grd_init(int num, int max)//结点初始化函数。
 {
 	if (max < 2)
 		max = 2;
@@ -60,11 +75,11 @@ void grd_node::grd_init(int num, int max)
 		w[i] = uf(e);
 	}
 	inner.sp_init(max);
-	cout << nodenum << "" << endl;
+	cout << nodenum << "init finish" << endl;
 	;
 }
 
-void innersp::sp_init(int max)
+void innersp::sp_init(int max)//内部储存初始化函数。
 {
 	maxsize = max;
 	sp = new int[max];
@@ -75,18 +90,14 @@ void innersp::sp_init(int max)
 }
 
 
-
-
-
-
-void innersp::push(int e)
+void innersp::push(int e)//数据进入
 {
 	if (!sp)
 		exit(1);
 	sp[upper] = e;
 	upper = (upper + 1 + maxsize) % maxsize;
 }
-int innersp::getf()
+int innersp::getb()//读取最旧数据
 {
 	if (!sp)
 		exit(1);
@@ -95,7 +106,7 @@ int innersp::getf()
 	else
 		return 0;
 }
-int innersp::gete()
+int innersp::getu()//读取最新数据
 {
 	if (!sp)
 		exit(1);
@@ -104,14 +115,14 @@ int innersp::gete()
 	else
 		return 0;
 }
-void innersp::delf()
+void innersp::delb()//删除最旧数据
 {
 	if (!sp)
 		exit(1);
 	if ((upper - bottom + maxsize) % maxsize != 0)
 		upper = (upper - 1 + maxsize) % maxsize;
 }
-void innersp::dele()
+void innersp::delu()//删除最新数据
 {
 	if (!sp)
 		exit(1);
