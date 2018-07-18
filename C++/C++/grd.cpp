@@ -30,15 +30,16 @@ void grd_map::grd_run()//二维环形神经网络，运行
 	{
 		if (amt <= 33)//不足则全连接
 			for (i = lef; i < rig; i++)
-				if (i != anc && nodes[i].sort <= nodes[anc].sort)r += nodes[anc].w[i] * nodes[i].my;
+				if (i != anc && nodes[i].sort <= nodes[anc].sort)
+					r += nodes[anc].w[i] * nodes[i].my;
 		if (amt > 33)
 		{
 			lef = (anc - 16 + amt) % amt; rig = (anc + 16) % amt;
 		}
-		for (i = lef; i != anc; i = (++i) % amt)
+		for (i = lef; i != anc; i = (++i) % amt)//！！存在单比特隐患
 			if (nodes[i].sort <= nodes[anc].sort)
 				r += nodes[anc].w[i] * nodes[i].my;
-		for (i = anc + 1; i != rig; i = (++i) % amt)
+		for (i = anc + 1; i != rig; i = (++i) % amt)//！！存在单比特隐患
 			if (nodes[i].sort <= nodes[anc].sort)
 				r += nodes[anc].w[i] * nodes[i].my;
 		anc++;
@@ -55,9 +56,13 @@ void grd_map::reshape(int p)//分层函数，把环形网络平均分成多组�
 {
 	if (p > 0)maxp = p;
 	int ii = amt / maxp, i;
-	for (i = 0; i < amt; i++)
+	for (i = 0; i <= amt / 2; i++)
 	{
-		nodes[i].sort = i / ii;
+		nodes[i].sort = maxp - 1 - 2 * i / ii;
+	}
+	for (i = amt / 2 + 1; i < amt; i++)
+	{
+		nodes[i].sort = 2 * i / ii - 1 - maxp;
 	}
 }
 void grd_node::grd_init(int num, int max)//结点初始化函数。
@@ -67,8 +72,9 @@ void grd_node::grd_init(int num, int max)//结点初始化函数。
 	nodenum = num;
 	default_random_engine e;
 	uniform_real_distribution<float> uf(-1, 1);
-	uniform_int_distribution<int> uli(-32000, 32000);
-	lim = uli(e);
+	//uniform_int_distribution<int> uli(-32000, 32000);
+	//lim = uli(e);
+	//弃用
 	int i;
 	for (i = 0; i < 32; i++)
 	{

@@ -1,1 +1,6 @@
-int main() { return 0; }
+#include"grd.h"
+int main() 
+{
+	grd_map mymap();
+	return 0;
+}

@@ -16,15 +16,10 @@ class innersp
 public:
 	void sp_init(int max = 2);
 	void push(int e);
-
 	int getb();
-
 	int getu();
-
 	void delb();
-
 	void delu();
-
 	int popb()//读取并删除最旧数据
 	{
 		int f = getb();
@@ -67,7 +62,7 @@ public:
 
 
 private:
-	int lim;
+	int lim = 0;
 	innersp inner;
 };
 /*模拟神经网络grd_map类：
