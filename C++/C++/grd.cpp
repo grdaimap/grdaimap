@@ -1,4 +1,4 @@
-/*
+﻿/*
 作者：grdaimap，
 联系方式&源码地址：https://github.com/grdaimap/grdaimap
 */
@@ -6,6 +6,8 @@
 #include <iostream>
 #include <stdlib.h>
 #include <random> //C++11以上才可使用
+#include <cmath>
+#include <glfw3.h>
 using namespace std;
 grd_map::grd_map(int inp, int sig, int amout, int max)//(int inp，输入结点的个数, int sig，标记结点个数（检验神经网络能力）, int amout，结点总数大于2, int max，结点内部空间大于2；默认不分层)
 {
@@ -15,13 +17,14 @@ grd_map::grd_map(int inp, int sig, int amout, int max)//(int inp，输入结点�
 		inp = 1; sig = 1; amout = 2; max = 2;
 	}
 	amt = amout;
+	cout << "map:" <<"  init start" << endl;
 	nodes = new grd_node[amout];
 	int temp;
 	for (temp = 0; temp < amout; temp++)
 	{
 		nodes[temp].grd_init(temp, max);
 	}
-
+	cout << "map:" << "  init finish" << endl;
 }
 void grd_map::grd_run()//二维环形神经网络，运行
 {
@@ -52,6 +55,9 @@ void grd_map::grd_run()//二维环形神经网络，运行
 			break;
 	}
 }
+void grd_map::show3D(int amt)//绘图函数，初步打算使用opendl
+{
+}
 void grd_map::reshape(int p)//分层函数，把环形网络平均分成多组，施工中。
 {
 	if (p > 0)maxp = p;
@@ -70,18 +76,22 @@ void grd_node::grd_init(int num, int max)//结点初始化函数。
 	if (max < 2)
 		max = 2;
 	nodenum = num;
-	default_random_engine e;
-	uniform_real_distribution<float> uf(-1, 1);
+	//default_random_engine e;
+	//uniform_real_distribution<float> uf(-10, 10);
 	//uniform_int_distribution<int> uli(-32000, 32000);
 	//lim = uli(e);
 	//弃用
 	int i;
+	//for (i = 0; i < 32; i++)
+	//{
+	//	w[i] = uf(e);
+	//}
 	for (i = 0; i < 32; i++)
 	{
-		w[i] = uf(e);
+		w[i] = 1.0;
 	}
 	inner.sp_init(max);
-	cout << nodenum << "init finish" << endl;
+	cout <<"node:" << nodenum << "  init finish" << endl;
 	;
 }
 

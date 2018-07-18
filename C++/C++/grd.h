@@ -1,16 +1,17 @@
-/*
-×÷Õß£ºgrdaimap£¬
-ÁªÏµ·½Ê½&Ô´ÂëµØÖ·£ºhttps://github.com/grdaimap/grdaimap
+ï»¿/*
+ä½œè€…ï¼šgrdaimapï¼Œ
+è”ç³»æ–¹å¼&æºç åœ°å€ï¼šhttps://github.com/grdaimap/grdaimap
 */
 #pragma once
-/*Ã¿¸ö innerspÀà °üÀ¨£º
-´¢´æ¿Õ¼ä£¨»·ĞÎ£©maxsize£»
 
-Í·Î²¡°Ö¸Õë¡±£¬bottomºÍupper;
+/*æ¯ä¸ª innerspç±» åŒ…æ‹¬ï¼š
+å‚¨å­˜ç©ºé—´ï¼ˆç¯å½¢ï¼‰maxsizeï¼›
 
-¶Á¶Ëº¯Êı£¬geteºÍgetf£»
+å¤´å°¾â€œæŒ‡é’ˆâ€ï¼Œbottomå’Œupper;
 
-È¥¶Ëº¯Êı£¬deleºÍdelf¡£*/
+è¯»ç«¯å‡½æ•°ï¼Œgeteå’Œgetfï¼›
+
+å»ç«¯å‡½æ•°ï¼Œdeleå’Œdelfã€‚*/
 class innersp
 {
 public:
@@ -20,13 +21,13 @@ public:
 	int getu();
 	void delb();
 	void delu();
-	int popb()//¶ÁÈ¡²¢É¾³ı×î¾ÉÊı¾İ
+	int popb()//è¯»å–å¹¶åˆ é™¤æœ€æ—§æ•°æ®
 	{
 		int f = getb();
 		delb();
 		return f;
 	}
-	int popu()//¶ÁÈ¡²¢É¾³ı×îĞÂÊı¾İ
+	int popu()//è¯»å–å¹¶åˆ é™¤æœ€æ–°æ•°æ®
 	{
 		int e = getu();
 		delu();
@@ -40,17 +41,17 @@ private:
 	int upper;
 };
 
-/*Ä£ÄâÉñ¾­½áµãgrd_nodeÀà£º
+/*æ¨¡æ‹Ÿç¥ç»ç»“ç‚¹grd_nodeç±»ï¼š
 
-¶à¸öÊäÈë²ÎÊı£¨Ê÷Í»£¬¶à´ï32ÉÏÏŞ£©£¬Ò»¸ö·µ»ØÖµ£¨ÖáÍ»£©¡£
+å¤šä¸ªè¾“å…¥å‚æ•°ï¼ˆæ ‘çªï¼Œå¤šè¾¾32ä¸Šé™ï¼‰ï¼Œä¸€ä¸ªè¿”å›å€¼ï¼ˆè½´çªï¼‰ã€‚
 
-½áµã×ÔÉíµÄÔËËãº¯Êı£º½ÓÊÜÁÚ½ü½áµã²ÎÊı£¬½øĞĞ·Å´ó£¨ËõĞ¡£©¡¢Ïà¼Ó£¬µÃ³ö½á¹ûÖµºÍãĞÖµ±È½Ï¡£
+ç»“ç‚¹è‡ªèº«çš„è¿ç®—å‡½æ•°ï¼šæ¥å—é‚»è¿‘ç»“ç‚¹å‚æ•°ï¼Œè¿›è¡Œæ”¾å¤§ï¼ˆç¼©å°ï¼‰ã€ç›¸åŠ ï¼Œå¾—å‡ºç»“æœå€¼å’Œé˜ˆå€¼æ¯”è¾ƒã€‚
 
-½áµã×ÔÉíµÄÊä³öº¯Êı£¬·µ»Ø4×Ö½ÚÄÚÄ£ÄâµçÁ÷£¨0ÎŞµçÁ÷£©¡£
+ç»“ç‚¹è‡ªèº«çš„è¾“å‡ºå‡½æ•°ï¼Œè¿”å›4å­—èŠ‚å†…æ¨¡æ‹Ÿç”µæµï¼ˆ0æ— ç”µæµï¼‰ã€‚
 
-ÕâÀïÒª¿¼ÂÇÍ»´¥¿ÉËÜĞÔLTP£¬LTD¡£³¤ÆÚÔöÇ¿×÷ÓÃ£¬³¤ÆÚÒÖÖÆ×÷ÓÃ£¬¶ÌÆÚÍ»´¥¿ÉËÜĞÔ¡£ÒÔ¼°ĞË·ÜĞÍ¡¢ÒÖÖÆĞÍ¡£
+è¿™é‡Œè¦è€ƒè™‘çªè§¦å¯å¡‘æ€§LTPï¼ŒLTDã€‚é•¿æœŸå¢å¼ºä½œç”¨ï¼Œé•¿æœŸæŠ‘åˆ¶ä½œç”¨ï¼ŒçŸ­æœŸçªè§¦å¯å¡‘æ€§ã€‚ä»¥åŠå…´å¥‹å‹ã€æŠ‘åˆ¶å‹ã€‚
 
-**£¡£¡²»Ê¹ÓÃÉñ¾­ÍøÂç³£ÓÃµÄ¼¤»îº¯Êı***/
+**ï¼ï¼ä¸ä½¿ç”¨ç¥ç»ç½‘ç»œå¸¸ç”¨çš„æ¿€æ´»å‡½æ•°***/
 class grd_node
 {
 
@@ -59,29 +60,29 @@ public:
 	void grd_init(int num, int max);
 	int nodenum, sort = 0, my = 0;
 	float w[32];
-
+	float x=0, y=0, z=0;
 
 private:
 	int lim = 0;
 	innersp inner;
 };
-/*Ä£ÄâÉñ¾­ÍøÂçgrd_mapÀà£º
-	Ò»¸ö½áµãÊı×é£¬grd_node *nodes;
+/*æ¨¡æ‹Ÿç¥ç»ç½‘ç»œgrd_mapç±»ï¼š
+	ä¸€ä¸ªç»“ç‚¹æ•°ç»„ï¼Œgrd_node *nodes;
 
-	³õÊ¼»¯º¯Êı£¬grd_map(int inp = 1, int out = 1, int amout = 0, int max = 2);
+	åˆå§‹åŒ–å‡½æ•°ï¼Œgrd_map(int inp = 1, int out = 1, int amout = 0, int max = 2);
 
-	¸Ä±ä²ãÊı£¬½¨ÒéÉÙÓÚÊ®²ã£¬void reshape(int maxp);
+	æ”¹å˜å±‚æ•°ï¼Œå»ºè®®å°‘äºåå±‚ï¼Œvoid reshape(int maxp);
 
-	ÔËĞĞº¯Êı£¬void grd_run();
+	è¿è¡Œå‡½æ•°ï¼Œvoid grd_run();
 
-	½áµã×ÜÊı£¬int amt = 0;
+	ç»“ç‚¹æ€»æ•°ï¼Œint amt = 0;
 
-	×î´ó²ãÊı£¬int maxp = 0;*/
+	æœ€å¤§å±‚æ•°ï¼Œint maxp = 0;*/
 class grd_map
 {
 
 public:
-	grd_map(int inp = 1, int sig = 1, int amout = 0, int max = 2);
+	grd_map(int inp = 1, int sig = 1, int amout = 2, int max = 2);
 	void reshape(int maxp);
 	~grd_map()
 	{
@@ -89,10 +90,10 @@ public:
 			delete[] nodes;
 	}
 	void grd_run();
-
+	void show3D(int amt=2);
 private:
 	grd_node * nodes;
-	int amt = 0;
+	int amt = 2;
 	int maxp = 1;
 };
 
