@@ -60,11 +60,12 @@ public:
 	void grd_init(int num, int max);
 	int nodenum, sort = 0, my = 0;
 	float w[32];
-	float x=0, y=0, z=0;
+	float x = 0, y = 0, z = 0;
 
 private:
 	int lim = 0;
 	innersp inner;
+
 };
 /*模拟神经网络grd_map类：
 	一个结点数组，grd_node *nodes;
@@ -90,10 +91,11 @@ public:
 			delete[] nodes;
 	}
 	void grd_run();
-	void show3D(int amt=2);
+	void show3D();
+	void mapchoose(short i);
 private:
 	grd_node * nodes;
-	int amt = 2;
-	int maxp = 1;
+	int inp = 1,sig=1,amt = 2,maxp = 1;
+	void drawNode(int amt = 2);
 };
 
