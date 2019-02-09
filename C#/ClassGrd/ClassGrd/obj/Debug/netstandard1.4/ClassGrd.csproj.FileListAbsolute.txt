@@ -1,0 +1,8 @@
+D:\code\GH\grdaimap\C++\ClassGrd\ClassGrd\bin\Debug\netstandard1.4\ClassGrd.deps.json
+D:\code\GH\grdaimap\C++\ClassGrd\ClassGrd\bin\Debug\netstandard1.4\ClassGrd.dll
+D:\code\GH\grdaimap\C++\ClassGrd\ClassGrd\bin\Debug\netstandard1.4\ClassGrd.pdb
+D:\code\GH\grdaimap\C++\ClassGrd\ClassGrd\obj\Debug\netstandard1.4\ClassGrd.csprojAssemblyReference.cache
+D:\code\GH\grdaimap\C++\ClassGrd\ClassGrd\obj\Debug\netstandard1.4\ClassGrd.csproj.CoreCompileInputs.cache
+D:\code\GH\grdaimap\C++\ClassGrd\ClassGrd\obj\Debug\netstandard1.4\ClassGrd.AssemblyInfo.cs
+D:\code\GH\grdaimap\C++\ClassGrd\ClassGrd\obj\Debug\netstandard1.4\ClassGrd.dll
+D:\code\GH\grdaimap\C++\ClassGrd\ClassGrd\obj\Debug\netstandard1.4\ClassGrd.pdb
