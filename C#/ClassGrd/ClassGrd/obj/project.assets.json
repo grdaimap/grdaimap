@@ -3770,11 +3770,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\code\\GH\\grdaimap\\C++\\ClassGrd\\ClassGrd\\ClassGrd.csproj",
+      "projectUniqueName": "D:\\code\\GH\\grdaimap\\C#\\ClassGrd\\ClassGrd\\ClassGrd.csproj",
       "projectName": "ClassGrd",
-      "projectPath": "D:\\code\\GH\\grdaimap\\C++\\ClassGrd\\ClassGrd\\ClassGrd.csproj",
+      "projectPath": "D:\\code\\GH\\grdaimap\\C#\\ClassGrd\\ClassGrd\\ClassGrd.csproj",
       "packagesPath": "C:\\Users\\cloud\\.nuget\\packages\\",
-      "outputPath": "D:\\code\\GH\\grdaimap\\C++\\ClassGrd\\ClassGrd\\obj\\",
+      "outputPath": "D:\\code\\GH\\grdaimap\\C#\\ClassGrd\\ClassGrd\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\cloud\\AppData\\Roaming\\NuGet\\NuGet.Config",
