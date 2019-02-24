@@ -1,0 +1,5 @@
+D:\code\grd\grd\bin\Debug\grd.dll
+D:\code\grd\grd\bin\Debug\grd.pdb
+D:\code\grd\grd\obj\Debug\grd.csproj.CoreCompileInputs.cache
+D:\code\grd\grd\obj\Debug\grd.dll
+D:\code\grd\grd\obj\Debug\grd.pdb
