@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassGrd", "ClassGrd\ClassGrd.csproj", "{CE025742-FDC6-4882-8AD9-3419A7E59699}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tetris_ai_cn", "..\..\..\..\tetris_ai_cn\tetris_ai_cn\tetris_ai_cn.csproj", "{657163CF-62E2-46A1-BB6E-6A2413D730A6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test", "test\test.vcxproj", "{134D5B4F-0862-4778-B669-81E56A4CBE1C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,18 +29,16 @@ Global
 		{CE025742-FDC6-4882-8AD9-3419A7E59699}.Release|x64.Build.0 = Release|Any CPU
 		{CE025742-FDC6-4882-8AD9-3419A7E59699}.Release|x86.ActiveCfg = Release|Any CPU
 		{CE025742-FDC6-4882-8AD9-3419A7E59699}.Release|x86.Build.0 = Release|Any CPU
-		{657163CF-62E2-46A1-BB6E-6A2413D730A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{657163CF-62E2-46A1-BB6E-6A2413D730A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{657163CF-62E2-46A1-BB6E-6A2413D730A6}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{657163CF-62E2-46A1-BB6E-6A2413D730A6}.Debug|x64.Build.0 = Debug|Any CPU
-		{657163CF-62E2-46A1-BB6E-6A2413D730A6}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{657163CF-62E2-46A1-BB6E-6A2413D730A6}.Debug|x86.Build.0 = Debug|Any CPU
-		{657163CF-62E2-46A1-BB6E-6A2413D730A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{657163CF-62E2-46A1-BB6E-6A2413D730A6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{657163CF-62E2-46A1-BB6E-6A2413D730A6}.Release|x64.ActiveCfg = Release|Any CPU
-		{657163CF-62E2-46A1-BB6E-6A2413D730A6}.Release|x64.Build.0 = Release|Any CPU
-		{657163CF-62E2-46A1-BB6E-6A2413D730A6}.Release|x86.ActiveCfg = Release|Any CPU
-		{657163CF-62E2-46A1-BB6E-6A2413D730A6}.Release|x86.Build.0 = Release|Any CPU
+		{134D5B4F-0862-4778-B669-81E56A4CBE1C}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{134D5B4F-0862-4778-B669-81E56A4CBE1C}.Debug|x64.ActiveCfg = Debug|x64
+		{134D5B4F-0862-4778-B669-81E56A4CBE1C}.Debug|x64.Build.0 = Debug|x64
+		{134D5B4F-0862-4778-B669-81E56A4CBE1C}.Debug|x86.ActiveCfg = Debug|Win32
+		{134D5B4F-0862-4778-B669-81E56A4CBE1C}.Debug|x86.Build.0 = Debug|Win32
+		{134D5B4F-0862-4778-B669-81E56A4CBE1C}.Release|Any CPU.ActiveCfg = Release|Win32
+		{134D5B4F-0862-4778-B669-81E56A4CBE1C}.Release|x64.ActiveCfg = Release|x64
+		{134D5B4F-0862-4778-B669-81E56A4CBE1C}.Release|x64.Build.0 = Release|x64
+		{134D5B4F-0862-4778-B669-81E56A4CBE1C}.Release|x86.ActiveCfg = Release|Win32
+		{134D5B4F-0862-4778-B669-81E56A4CBE1C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

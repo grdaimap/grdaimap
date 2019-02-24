@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ClassGrd;
 namespace ClassGrd
 {
 	/// <summary>
 	/// 图
 	/// </summary>
-	public partial class Map
+	public partial class map
 	{
 		/// <summary>
 		/// 名称
@@ -23,7 +24,7 @@ namespace ClassGrd
 		/// <summary>
 		/// 需要之前就算好的图的列表
 		/// </summary>
-		public List<Map> premaps;
+		public List<map> premaps;
 		/// <summary>
 		/// 记号，把构造和执行分开
 		/// </summary>
@@ -40,7 +41,7 @@ namespace ClassGrd
 			if (sys == "") return;
 			premaps[0].Run();
 			premaps[1].Run();
-			Map new_map = new Map(shape[0], shape[1]);
+			map new_map = new map(shape[0], shape[1]);
 			switch (sys)
 			{
 				case "": break;
@@ -60,9 +61,9 @@ namespace ClassGrd
 		/// <summary>
 		/// 摊平data数组
 		/// </summary>
-		public Map Plain()
+		public map Plain()
 		{
-			Map c = new Map(shape[0] * shape[1], 1);
+			map c = new map(shape[0] * shape[1], 1);
 			double[,] new_data = new double[shape[0] * shape[1], 1];
 			for (int cl = 0; cl < shape[0]; cl++)
 				for (int r = 0; r < shape[1]; r++)
@@ -89,7 +90,7 @@ namespace ClassGrd
 		/// <param name="columns">列数</param>
 		/// <param name="rows">行数</param>
 		/// <param name="cname">名字</param>
-		public Map(int columns = 1, int rows = 1, string cname = "")
+		public map(int columns = 1, int rows = 1, string cname = "")
 		{
 			name = cname;
 			if (columns > 0 && rows > 0) shape = new int[] { columns, rows };
@@ -101,16 +102,16 @@ namespace ClassGrd
 		/// <param name="a">图类型</param>
 		/// <param name="b">图类型</param>
 		/// <returns>一个矩阵乘法的结果图</returns>
-		public static Map operator *(Map a, Map b)
+		public static map operator *(map a, map b)
 		{
-			Map c;
+			map c;
 			if (a.shape[1] != b.shape[0])
 			{
 				throw new Exception("检查矩阵形状");
 			}
 			else
 			{
-				c = new Map(a.shape[0], b.shape[1]);
+				c = new map(a.shape[0], b.shape[1]);
 				for (int cl = 0; cl < c.shape[0]; cl++)
 					for (int r = 0; r < c.shape[1]; r++)
 						for (int co = 0; co < a.shape[1]; co++)
@@ -124,12 +125,12 @@ namespace ClassGrd
 		/// <param name="a">图类型</param>
 		/// <param name="b">图类型</param>
 		/// <returns>一个矩阵加法的结果图</returns>
-		public static Map operator +(Map a, Map b)
+		public static map operator +(map a, map b)
 		{
-			Map c;
+			map c;
 			if (a.shape[0] == b.shape[0] && a.shape[1] == b.shape[1])
 			{
-				c = new Map(a.shape[0], b.shape[1]);
+				c = new map(a.shape[0], b.shape[1]);
 				for (int cl = 0; cl < c.shape[0]; cl++)
 					for (int r = 0; r < c.shape[1]; r++)
 						c.data[cl, r] = a.data[cl, r] + b.data[cl, r];
@@ -139,6 +140,85 @@ namespace ClassGrd
 			{
 				throw new Exception("检查矩阵形状");
 			}
+		}
+		public static map operator -(map a, map b)
+		{
+			map c;
+			if (a.shape[0] == b.shape[0] && a.shape[1] == b.shape[1])
+			{
+				c = new map(a.shape[0], b.shape[1]);
+				for (int cl = 0; cl < c.shape[0]; cl++)
+					for (int r = 0; r < c.shape[1]; r++)
+						c.data[cl, r] = a.data[cl, r] - b.data[cl, r];
+				return c;
+			}
+			else
+			{
+				throw new Exception("检查矩阵形状");
+			}
+		}
+		public map T()
+		{
+			map c = new map(shape[1], shape[0]);
+			for (int cl = 0; cl < c.shape[0]; cl++)
+				for (int r = 0; r < c.shape[1]; r++)
+					c.data[r, cl] = data[cl, r];
+			return c;
+		}
+		public static map mul(map a, map b)
+		{
+			map c;
+			if (a.shape[0] == b.shape[0] && a.shape[1] == b.shape[1])
+			{
+				c = new map(a.shape[0], b.shape[1]);
+				for (int cl = 0; cl < c.shape[0]; cl++)
+					for (int r = 0; r < c.shape[1]; r++)
+						c.data[cl, r] = a.data[cl, r] * b.data[cl, r];
+				return c;
+			}
+			else
+			{
+				throw new Exception("检查矩阵形状");
+			}
+		}
+		public static map log(map a)
+		{
+			map c;
+
+			c = new map(a.shape[0], a.shape[1]);
+			for (int cl = 0; cl < c.shape[0]; cl++)
+				for (int r = 0; r < c.shape[1]; r++)
+					c.data[cl, r] = Math.Log(a.data[cl, r]);
+			return c;
+
+		}
+		public map change(double a)
+		{
+			map c;
+
+			c = new map(shape[0], shape[1]);
+			for (int cl = 0; cl < c.shape[0]; cl++)
+				for (int r = 0; r < c.shape[1]; r++)
+					c.data[cl, r] += a;
+			return c;
+		}
+		public map rev()
+		{
+			map c;
+
+			c = new map(shape[0], shape[1]);
+			for (int cl = 0; cl < c.shape[0]; cl++)
+				for (int r = 0; r < c.shape[1]; r++)
+					c.data[cl, r] = -c.data[cl, r];
+			return c;
+		}
+		public double sum()
+		{
+			double c = 0;
+			for (int cl = 0; cl < shape[0]; cl++)
+				for (int r = 0; r < shape[1]; r++)
+					c += data[cl, r];
+			return c;
 		}
 	}
 }

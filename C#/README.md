@@ -5,4 +5,4 @@
 
 为了配合 [tetris_ai](https://github.com/grdaimap/tetris_ai)
 
-使用 .NET Core 编译成ddl
+使用 .NET 编译成ddl
