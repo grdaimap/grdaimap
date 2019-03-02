@@ -1,0 +1,11 @@
+D:\code\grd\grd\bin\Debug\grd.dll
+D:\code\grd\grd\bin\Debug\grd.pdb
+D:\code\grd\grd\obj\Debug\grd.csproj.CoreCompileInputs.cache
+D:\code\grd\grd\obj\Debug\grd.dll
+D:\code\grd\grd\obj\Debug\grd.pdb
+D:\code\GH\grdaimap\C#\win-core\grd\bin\Debug\grd.dll
+D:\code\GH\grdaimap\C#\win-core\grd\bin\Debug\grd.pdb
+D:\code\GH\grdaimap\C#\win-core\grd\obj\Debug\grd.csprojAssemblyReference.cache
+D:\code\GH\grdaimap\C#\win-core\grd\obj\Debug\grd.csproj.CoreCompileInputs.cache
+D:\code\GH\grdaimap\C#\win-core\grd\obj\Debug\grd.dll
+D:\code\GH\grdaimap\C#\win-core\grd\obj\Debug\grd.pdb
