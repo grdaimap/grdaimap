@@ -1,6 +1,7 @@
-# grdaimap
-模拟复杂网络库(Analog complex network library)
+### 从一开始的人工智能之路
 
-长时间搁置190302
+### A expedition of ai, begins with one.
 
-太失败了TAT
+**以前代码放在别的分支里了**
+
+**See former code in other branches.**
